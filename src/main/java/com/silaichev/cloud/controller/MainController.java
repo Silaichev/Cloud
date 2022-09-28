@@ -6,8 +6,7 @@ import com.silaichev.cloud.service.InfoService;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import static com.silaichev.cloud.rabbit.RabbitConfiguration.EXCHANGE_NAME;
 
@@ -23,9 +22,9 @@ public class MainController {
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
-    @GetMapping("/add")
-    public String add(){
-        Info info = new Info(0, "newInfo", "passForNewInfo");
+    @PostMapping("/add")
+    public String add(@RequestBody Info info){
+        System.out.println(info.toString());
         infoService.createInfo(info);
         return "hello";
     }
@@ -49,7 +48,8 @@ public class MainController {
 
     @GetMapping("/all")
     public String all(){
-        rabbitTemplate.convertAndSend(EXCHANGE_NAME,"", new Info(0,"newInfo","passForNewInfo"));
+
+        template.convertAndSend(EXCHANGE_NAME, "", "passForNewInfo");
         return "all";
     }
 

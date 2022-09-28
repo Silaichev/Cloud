@@ -1,10 +1,7 @@
 package com.silaichev.cloud.rabbit;
 
 
-import org.springframework.amqp.core.BindingBuilder;
-import org.springframework.amqp.core.Declarable;
-import org.springframework.amqp.core.FanoutExchange;
-import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.core.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -24,13 +21,39 @@ public class RabbitConfiguration {
     public static final String EXCHANGE_NAME = "all";
 
     @Bean
-    public Queue getCloudQueue(){
+    public Queue getCloudQueue() {
         return new Queue(CLOUD_QUEUE);
     }
 
     @Bean
-    public Queue getMicroserviceQueue(){
+    public Queue getMicroserviceQueue() {
         return new Queue(MICROSERVICE_QUEUE);
     }
+/*
+    @Bean
+    public FanoutExchange fanoutBindings() {
+        Queue fanoutQueue1 = new Queue(CLOUD_QUEUE, false);
+        Queue fanoutQueue2 = new Queue(MICROSERVICE_QUEUE, false);
+        FanoutExchange fanoutExchange = new FanoutExchange(EXCHANGE_NAME);
+
+        BindingBuilder.bind(fanoutQueue1).to(fanoutExchange);
+        BindingBuilder.bind(fanoutQueue2).to(fanoutExchange);
+        return fanoutExchange;
+
+    }*/
+
+   /* @Bean
+    public Declarables fanoutBindings() {
+        Queue fanoutQueue1 = new Queue(CLOUD_QUEUE, false);
+        Queue fanoutQueue2 = new Queue(MICROSERVICE_QUEUE, false);
+        FanoutExchange fanoutExchange = new FanoutExchange(EXCHANGE_NAME);
+
+        return new Declarables(
+                fanoutQueue1,
+                fanoutQueue2,
+                fanoutExchange,
+                BindingBuilder.bind(fanoutQueue1).to(fanoutExchange),
+                BindingBuilder.bind(fanoutQueue2).to(fanoutExchange));
+    }*/
 
 }

@@ -1,10 +1,16 @@
 package com.silaichev.cloud.pojo;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Document
 public class Info implements Serializable {
     @Id
@@ -12,8 +18,7 @@ public class Info implements Serializable {
     private String name;
     private String pass;
 
-    public Info(long id, String name, String pass) {
-        this.id = id;
+    public Info(String name, String pass) {
         this.name = name;
         this.pass = pass;
     }
