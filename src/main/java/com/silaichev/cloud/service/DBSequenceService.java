@@ -1,7 +1,7 @@
 package com.silaichev.cloud.service;
 
-import com.silaichev.cloud.pojo.DBSequence;
-import com.silaichev.cloud.repo.DBSequenceRepo;
+import com.silaichev.cloud.entity.DBSequence;
+import com.silaichev.cloud.repository.DBSequenceRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -15,14 +15,14 @@ public class DBSequenceService {
 
     private static final String DB_SEQUENCE_ID = "info_sequence";
 
-    public Long incrementSequence(){
+    public Long incrementSequence() {
         Long result = 0L;
         Optional<DBSequence> sequenceOptional = sequenceRepo.findById(DB_SEQUENCE_ID);
-        if(sequenceOptional.isEmpty()){
+        if (sequenceOptional.isEmpty()) {
             DBSequence newSequence = new DBSequence(DB_SEQUENCE_ID, 0L);
             sequenceRepo.save(newSequence);
-        }else{
-            DBSequence existsSequence = sequenceRepo.findById(DB_SEQUENCE_ID).get();
+        } else {
+            DBSequence existsSequence = sequenceOptional.get();
             existsSequence.incrementNumber();
             result = existsSequence.getSequenceNumber();
             sequenceRepo.save(existsSequence);

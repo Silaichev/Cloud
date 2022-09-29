@@ -1,10 +1,10 @@
 package com.silaichev.cloud.controller;
 
 
-import com.silaichev.cloud.pojo.Info;
+import com.google.gson.Gson;
+import com.silaichev.cloud.entity.Info;
 import com.silaichev.cloud.service.InfoService;
-import org.springframework.amqp.core.AmqpTemplate;
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import com.silaichev.cloud.service.RabbitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,11 +12,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import static com.silaichev.cloud.rabbit.RabbitConfiguration.EXCHANGE_NAME;
-
 @RestController
 @RequestMapping("info")
 public class InfoCRUDController {
+
+    @Autowired
+    private RabbitService rabbitService;
 
     @Autowired
     private InfoService infoService;
@@ -25,6 +26,7 @@ public class InfoCRUDController {
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody Info info) {
         infoService.createInfo(info);
+        rabbitService.sendToAll(new Gson().toJson(info));
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 

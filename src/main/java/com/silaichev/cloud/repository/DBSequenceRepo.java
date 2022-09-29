@@ -1,7 +1,6 @@
-package com.silaichev.cloud.repo;
+package com.silaichev.cloud.repository;
 
-import com.silaichev.cloud.pojo.DBSequence;
-import com.silaichev.cloud.pojo.Info;
+import com.silaichev.cloud.entity.DBSequence;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface DBSequenceRepo extends MongoRepository<DBSequence, String> {

@@ -1,4 +1,4 @@
-package com.silaichev.cloud.pojo;
+package com.silaichev.cloud.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,7 +16,7 @@ public class DBSequence {
     private String id;
     private Long sequenceNumber;
 
-    public void incrementNumber(){
+    public void incrementNumber() {
         sequenceNumber++;
     }
 }

@@ -1,8 +1,8 @@
 package com.silaichev.cloud.service;
 
 
-import com.silaichev.cloud.pojo.Info;
-import com.silaichev.cloud.repo.InfoRepo;
+import com.silaichev.cloud.entity.Info;
+import com.silaichev.cloud.repository.InfoRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +16,9 @@ public class InfoService {
     private DBSequenceService dbSequenceService;
 
     @Autowired
+    private RabbitService rabbitService;
+
+    @Autowired
     private InfoRepo infoRepo;
 
     public void createInfo(Info info) {
@@ -25,8 +28,8 @@ public class InfoService {
         }
     }
 
-    public void delete(Info info){
-        if(checkExist(info)){
+    public void delete(Info info) {
+        if (checkExist(info)) {
             Info deletingInfo = findInfoByName(info.getName());
             infoRepo.deleteById(deletingInfo.getId());
         }
