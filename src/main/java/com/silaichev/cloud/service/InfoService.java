@@ -25,6 +25,28 @@ public class InfoService {
         }
     }
 
+    public void delete(Info info){
+        if(checkExist(info)){
+            Info deletingInfo = findInfoByName(info.getName());
+            infoRepo.deleteById(deletingInfo.getId());
+        }
+    }
+
+    public void editInfo(Info[] info) {
+        if (checkExist(info[0])) {
+            Info oldInfo = findInfoByName(info[0].getName());
+            oldInfo.setName(info[1].getName());
+            oldInfo.setPass(info[1].getPass());
+            infoRepo.save(oldInfo);
+        }
+    }
+
+    public Info findInfoByName(String name) {
+        List<Info> filteredInfo = infoRepo.findAll().stream().filter(i -> i.getName().equals(name))
+                .collect(Collectors.toList());
+        return filteredInfo.get(0);
+    }
+
     public boolean checkExist(Info info) {
         List<Info> filteredInfo = infoRepo.findAll().stream().filter(i -> i.getName().equals(info.getName()))
                 .filter(i -> i.getPass().equals(info.getPass())).collect(Collectors.toList());
