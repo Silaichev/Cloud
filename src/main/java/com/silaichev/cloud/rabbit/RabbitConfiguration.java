@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 
@@ -23,12 +24,10 @@ public class RabbitConfiguration {
     public static final String CLOUD_QUEUE = "cloudQueue";
     public List<String> queuesNames;
 
-    FanoutExchange fanoutExchange;
-
     @Bean
     public List<Queue> creatingQueues() {
         queuesNames = credentialService.getQueueNames();
-        List<Queue> queuesList = new ArrayList<>();
+        List<Queue> queuesList = new LinkedList<>();
         return queuesList;
     }
 }

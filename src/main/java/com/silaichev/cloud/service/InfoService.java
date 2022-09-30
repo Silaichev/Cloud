@@ -1,6 +1,7 @@
 package com.silaichev.cloud.service;
 
 
+import com.google.gson.Gson;
 import com.silaichev.cloud.entity.Info;
 import com.silaichev.cloud.repository.InfoRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +17,11 @@ public class InfoService {
     private DBSequenceService dbSequenceService;
 
     @Autowired
-    private RabbitService rabbitService;
-
-    @Autowired
     private InfoRepo infoRepo;
+
+    public String convertToString(Info info){
+        return new Gson().toJson(info);
+    }
 
     public void createInfo(Info info) {
         if (!checkExist(info)) {
