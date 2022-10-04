@@ -1,7 +1,7 @@
-package com.silaichev.cloud.service;
+package com.silaichev.common.service;
 
-import com.silaichev.cloud.entity.DBSequence;
-import com.silaichev.cloud.repository.DBSequenceRepo;
+import com.silaichev.common.entity.DBSequence;
+import com.silaichev.common.repository.DBSequenceRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

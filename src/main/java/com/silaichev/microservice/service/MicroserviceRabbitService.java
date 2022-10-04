@@ -1,6 +1,6 @@
-package com.silaichev.cloud.service;
+package com.silaichev.microservice.service;
 
-import com.silaichev.cloud.rabbit.MicroserviceRabbitConfiguration;
+import com.silaichev.microservice.rabbit.MicroserviceRabbitConfiguration;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,8 +1,8 @@
 package com.silaichev.cloud.controller;
 
 
-import com.silaichev.cloud.entity.Info;
-import com.silaichev.cloud.service.InfoService;
+import com.silaichev.common.entity.Info;
+import com.silaichev.common.service.InfoService;
 import com.silaichev.cloud.service.CloudRabbitService;
 import com.silaichev.cloud.service.CloudRequestsRecognizerService;
 import org.springframework.beans.factory.annotation.Autowired;

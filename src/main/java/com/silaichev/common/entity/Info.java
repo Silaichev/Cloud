@@ -1,4 +1,4 @@
-package com.silaichev.cloud.entity;
+package com.silaichev.common.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

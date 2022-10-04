@@ -1,7 +1,7 @@
-package com.silaichev.cloud.service;
+package com.silaichev.microservice.service;
 
-import com.silaichev.cloud.entity.MicroserviceCredential;
-import com.silaichev.cloud.repository.MicroserviceCredentialsRepository;
+import com.silaichev.microservice.entity.MicroserviceCredential;
+import com.silaichev.microservice.repository.MicroserviceCredentialsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.silaichev.cloud.rabbit;
+package com.silaichev.microservice.rabbit;
 
 
 import org.springframework.amqp.core.Queue;

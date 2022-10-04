@@ -1,6 +1,7 @@
 package com.silaichev.cloud.service;
 
-import com.silaichev.cloud.entity.Info;
+import com.silaichev.common.entity.Info;
+import com.silaichev.common.service.InfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;

@@ -1,9 +1,9 @@
-package com.silaichev.cloud.service;
+package com.silaichev.common.service;
 
 
 import com.google.gson.Gson;
-import com.silaichev.cloud.entity.Info;
-import com.silaichev.cloud.repository.InfoRepo;
+import com.silaichev.common.entity.Info;
+import com.silaichev.common.repository.InfoRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

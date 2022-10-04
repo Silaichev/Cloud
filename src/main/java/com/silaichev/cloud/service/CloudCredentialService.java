@@ -1,5 +1,6 @@
 package com.silaichev.cloud.service;
 
+import com.silaichev.common.service.DBSequenceService;
 import com.silaichev.cloud.entity.CloudCredential;
 import com.silaichev.cloud.repository.CloudCredentialRepository;
 import org.springframework.beans.factory.annotation.Autowired;
