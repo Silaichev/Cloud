@@ -2,10 +2,12 @@ package com.silaichev.cloud.service;
 
 import com.silaichev.cloud.entity.Info;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 @Service
-public class RequestsRecognizerService {
+@Profile("cloud")
+public class CloudRequestsRecognizerService {
 
     @Autowired
     private InfoService infoService;

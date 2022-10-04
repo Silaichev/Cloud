@@ -3,9 +3,10 @@ package com.silaichev.cloud.controller;
 
 import com.silaichev.cloud.entity.Info;
 import com.silaichev.cloud.service.InfoService;
-import com.silaichev.cloud.service.RabbitService;
-import com.silaichev.cloud.service.RequestsRecognizerService;
+import com.silaichev.cloud.service.CloudRabbitService;
+import com.silaichev.cloud.service.CloudRequestsRecognizerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,13 +15,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("info")
+@Profile("cloud")
 public class InfoCRUDController {
 
     @Autowired
-    private RequestsRecognizerService recognizerService;
+    private CloudRequestsRecognizerService recognizerService;
 
     @Autowired
-    private RabbitService rabbitService;
+    private CloudRabbitService rabbitService;
 
     @Autowired
     private InfoService infoService;

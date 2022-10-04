@@ -23,6 +23,10 @@ public class InfoService {
         return new Gson().toJson(info);
     }
 
+    public Info convertToInfo(String message){
+        return new Gson().fromJson(message, Info.class);
+    }
+
     public void createInfo(Info info) {
         if (!checkExist(info)) {
             info.setId(dbSequenceService.incrementSequence());

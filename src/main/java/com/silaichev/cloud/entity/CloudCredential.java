@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 @AllArgsConstructor
 @NoArgsConstructor
-public class Credential {
+public class CloudCredential {
     @Id
     private Long id;
     private String mac;

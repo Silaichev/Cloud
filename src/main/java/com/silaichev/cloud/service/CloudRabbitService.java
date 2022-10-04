@@ -3,15 +3,17 @@ package com.silaichev.cloud.service;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.nio.charset.StandardCharsets;
 
 @Service
-public class RabbitService {
+@Profile("cloud")
+public class CloudRabbitService {
 
     @Autowired
-    private CredentialService credentialService;
+    private CloudCredentialService credentialService;
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
